@@ -3,4 +3,24 @@ from langchain.chains import LLMChain
 from langchain_together import ChatTogether
 from langchain_core.output_parsers import JsonOutputParser
 import json
-from pydantic import BaseModel, Field
+from .utils import parser
+from .prompt_templates import prompt_templates
+
+
+class LLM_Api:
+    def __init__(self, model_name, temperature=0.0, api_key=None, chatbot_type="qa"):
+
+        if api_key is None:
+            raise ValueError("API key is required.")
+        try:
+            llm = ChatTogether(
+                api_key=api_key, temperature=temperature, model=model_name)
+            self.llm_chain = prompt_templates[chatbot_type] | llm | parser
+        except Exception as e:
+            raise ValueError("Error initializing the LLM chain: " + str(e))
+
+    def rate_answer(self, question, user_answer):
+        return self.llm_chain.invoke({"question": question, "user_answer": user_answer})
+
+    def compare_answers(self, expected_answer, user_answer):
+        return self.llm_chain.invoke({"expected_answer": expected_answer, "user_answer": user_answer})
