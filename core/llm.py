@@ -16,11 +16,22 @@ class LLM_Api:
             llm = ChatTogether(
                 api_key=api_key, temperature=temperature, model=model_name)
             self.llm_chain = prompt_templates[chatbot_type] | llm | parser
+            self.cache = {}  #
         except Exception as e:
             raise ValueError("Error initializing the LLM chain: " + str(e))
 
     def rate_answer(self, question, user_answer):
-        return self.llm_chain.invoke({"question": question, "user_answer": user_answer})
+        # cache_key = (question, user_answer)
+        # if cache_key in self.cache:
+        #     return self.cache[cache_key]
+
+        result = self.llm_chain.invoke(
+            {"question": question, "user_answer": user_answer})
+        # result = {
+        #     "rating": 0.5,
+        # }
+        # self.cache[cache_key] = result
+        return result
 
     def compare_answers(self, expected_answer, user_answer):
         return self.llm_chain.invoke({"expected_answer": expected_answer, "user_answer": user_answer})
