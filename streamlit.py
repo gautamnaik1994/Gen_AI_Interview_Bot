@@ -52,7 +52,7 @@ questions = {
 
 
 api = LLM_Api(model_name="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", temperature=0.0,
-              api_key=os.environ["TOGETHER_AI_API_KEY"], chatbot_type="qa")
+              api_key=st.secrets["TOGETHER_AI_API_KEY"], chatbot_type="qa")
 st.set_page_config(page_title="Interview Bot", page_icon=":robot:")
 st.title("Interview Bot")
 
