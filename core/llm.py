@@ -10,6 +10,8 @@ from .prompt_templates import prompt_templates
 class LLM_Api:
     def __init__(self, model_name, temperature=0.0, api_key=None, chatbot_type="qa"):
         if api_key is None:
+            print(
+                "API key is required.Please signup for free api at https://api.together.ai/signin")
             raise ValueError("API key is required.")
         try:
             llm = ChatTogether(
@@ -25,7 +27,7 @@ class LLM_Api:
         #     return self.cache[cache_key]
         result = {
             "rating": -99,
-            "reason": "Not implemented yet"
+            "reason": "You are seeing this message because the rating could not be calculated due to API failure."
         }
         try:
             result = self.llm_chain.invoke(
