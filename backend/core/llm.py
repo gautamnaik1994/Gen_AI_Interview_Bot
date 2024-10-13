@@ -22,26 +22,24 @@ class LLM_Api:
             raise ValueError("Error initializing the LLM chain: " + str(e))
 
     def rate_answer(self, question, user_answer, subject="ReactJS"):
-        # cache_key = (question, user_answer)
-        # if cache_key in self.cache:
-        #     return self.cache[cache_key]
-        result = {
-            "rating": -99,
+        def_result = {
+            "rating": -1,
             "reason": "You are seeing this message because the rating could not be calculated due to API failure."
         }
-        try:
-            result = self.llm_chain.invoke(
-                {"question": question, "user_answer": user_answer, "subject": subject})
+        # try:
+        #     result = self.llm_chain.invoke(
+        #         {"question": question, "user_answer": user_answer, "subject": subject})
 
-            if "rating" not in result:
-                raise ValueError("Rating not found in the output")
-            if not (0 <= result["rating"] <= 10):
-                raise ValueError("Rating should be between 0 and 10")
-        except Exception as e:
-            raise ValueError("Error invoking the LLM chain: " + str(e))
-
-        # self.cache[cache_key] = result
-        return result
+        #     if "rating" not in result:
+        #         raise ValueError("Rating not found in the output")
+        #     if not (0 <= result["rating"] <= 10):
+        #         raise ValueError("Rating should be between 0 and 10")
+        # except Exception as e:
+        #     result = def_result
+        #     raise ValueError("Error invoking the LLM chain: " + str(e))
+        # finally:
+        #     return result
+        return def_result
 
     def compare_answers(self, expected_answer, user_answer):
         return self.llm_chain.invoke({"expected_answer": expected_answer, "user_answer": user_answer})
