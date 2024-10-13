@@ -10,7 +10,7 @@ Question: "{question}"
 
 User's answer: "{user_answer}"
 
-Rate the user's answer on a scale from 1 to 10 based on its relevance, accuracy, completeness (with 1 being completely irrelevant or incorrect, and 10 being a perfect answer) and provide reason for your rating in under 100 characters and also mention if answer is plagiarized or not.
+Rate the user's answer on a scale from 1 to 10 based on its relevance, accuracy, completeness (with 1 being completely irrelevant or incorrect, and 10 being a perfect answer) and provide reason for your rating in under 100 characters.
 {format_instructions}
 """
 

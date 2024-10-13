@@ -7,62 +7,8 @@ import {
   IconCloseCircle,
 } from './components/Icons';
 import Header from './components/Header';
-
-const reactQuestions = [
-  'What is the Virtual DOM and how does it differ from the real DOM?',
-  'Explain the difference between functional components and class components in React?',
-  'What are React Fragments and why are they useful?',
-  'Explain the concept of lifting state up in React?',
-];
-
-// const reactQuestions = [
-//   {
-//     question:
-//       'What is the Virtual DOM and how does it differ from the real DOM?',
-//     type: 'text',
-//   },
-//   {
-//     question:
-//       'Explain the difference between functional components and class components in React?',
-//     options: ['Functional Components', 'Class Components'],
-//     answer: 0,
-//   },
-//   {
-//     question: 'What are React Fragments and why are they useful?',
-//     type: 'text',
-//   },
-//   {
-//     question: 'Explain the concept of lifting state up in React?',
-//     type: 'text',
-//   },
-// ];
-
-const nodeQuestions = [
-  'What is the role of the event loop in Node.js?',
-  'What is the difference between asynchronous and synchronous programming in Node.js?',
-  'Explain the role of the fs module in Node.js?',
-  'What is the purpose of the cluster module in Node.js?',
-];
-
-const getRating = async (question: string, answer: string, subject: string) => {
-  const response = await fetch('http://localhost:8000/rate_qa', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      question: question,
-      answer,
-      subject,
-    }),
-  });
-  const data = await response.json();
-  return {
-    question: question,
-    answer,
-    ...data,
-  };
-};
+import { getRating } from './services/api';
+import { nodeQuestions, reactQuestions } from './utils/questions';
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -168,7 +114,7 @@ function App() {
         }
       } else if (currentState === 'react') {
         await handleRating(
-          reactQuestions[currentQuestionIndex],
+          reactQuestions[currentQuestionIndex].question,
           interimMsg,
           'ReactJS',
         );
@@ -179,7 +125,7 @@ function App() {
         }
       } else if (currentState === 'node') {
         await handleRating(
-          nodeQuestions[currentQuestionIndex],
+          nodeQuestions[currentQuestionIndex].question,
           interimMsg,
           'NodeJS',
         );
@@ -196,11 +142,27 @@ function App() {
     if (currentState === 'personal') {
       return personalQuestions[currentQuestionIndex].question;
     } else if (currentState === 'react') {
-      return reactQuestions[currentQuestionIndex];
+      return reactQuestions[currentQuestionIndex].question;
     } else if (currentState === 'node') {
-      return nodeQuestions[currentQuestionIndex];
+      return nodeQuestions[currentQuestionIndex].question;
     }
     return '';
+  };
+
+  const getQuestionByIndex = (index: number) => {
+    if (index < personalQuestions.length) {
+      return personalQuestions[index].question;
+    }
+
+    const totalPersonalQuestions = personalQuestions.length;
+    const totalReactQuestions = reactQuestions.length;
+
+    if (index < totalPersonalQuestions + totalReactQuestions) {
+      return reactQuestions[index - totalPersonalQuestions].question;
+    } else {
+      return nodeQuestions[index - totalPersonalQuestions - totalReactQuestions]
+        .question;
+    }
   };
 
   const adjustTextareaHeight = () => {
@@ -228,11 +190,11 @@ function App() {
     }
 
     return (
-      <li className="list-group-item p-4 bg-secondary-subtle d-flex justify-content-between align-items-center">
+      <li className="list-group-item p-4 bg-secondary-subtle d-md-flex justify-content-between align-items-center">
         <h5 className="mb-0">
           Overall Rating: {parseFloat(average.toFixed(2)) * 10.0}%
         </h5>
-        <div className="summary-inner position-relative">
+        <div className="summary-inner position-relative mt-2 mt-md-0">
           {average > 5 ? (
             <>
               <IconCircleCheck />
@@ -263,16 +225,7 @@ function App() {
                 <div className="d-flex align-items-center gap-2 mb-1">
                   <IconRobot />
                   <div className="card  font-monospace m-box ">
-                    {index < personalQuestions.length
-                      ? personalQuestions[index].question
-                      : answers.length <=
-                          personalQuestions.length + reactQuestions.length
-                        ? reactQuestions[index - personalQuestions.length]
-                        : nodeQuestions[
-                            index -
-                              personalQuestions.length -
-                              reactQuestions.length
-                          ]}
+                    {getQuestionByIndex(index)}
                   </div>
                 </div>
                 <div className="d-flex align-items-start gap-2 justify-content-end mt-2">

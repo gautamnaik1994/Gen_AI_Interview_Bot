@@ -2,16 +2,25 @@ import * as React from 'react';
 
 // function IconRobot(props: React.SVGProps<SVGSVGElement>) {
 //   return (
-//     <svg
-//       viewBox="0 0 640 512"
-//       fill="currentColor"
-//       height="1em"
-//       width="1em"
-//       className="icon icon-robot"
-//       {...props}
-//     >
-//       <path d="M320 0c17.7 0 32 14.3 32 32v64h128c35.3 0 64 28.7 64 64v288c0 35.3-28.7 64-64 64H160c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h128V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zM264 256c0-22.1-17.9-40-40-40s-40 17.9-40 40 17.9 40 40 40 40-17.9 40-40zm152 40c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zM48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224h16z" />
-//     </svg>
+{
+  /* <svg
+  width="776"
+  height="782"
+  viewBox="0 0 776 782"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle cx="271" cy="479" r="52" fill="#00AEFF" />
+  <circle cx="504" cy="479" r="52" fill="#00AEFF" />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M440 52C440 75.8684 423.919 95.9808 402 102.094V148.45C453.354 151.774 493.257 173.135 494.944 199.276C594.143 226.559 673.977 290.779 712.307 373H715C748.689 373 776 400.311 776 434V532C776 565.689 748.689 593 715 593H712.77C661.716 703.683 535.551 782 388 782C240.449 782 114.284 703.683 63.2297 593H61C27.3107 593 0 565.689 0 532V434C0 400.311 27.3106 373 61 373H63.6935C102.023 290.779 181.857 226.559 281.056 199.276C282.732 173.305 322.129 152.052 373 148.517V101.804C351.594 95.3657 336 75.5039 336 52C336 23.2812 359.281 0 388 0C416.719 0 440 23.2812 440 52ZM266 363C200.83 363 148 415.83 148 481C148 546.17 200.83 599 266 599H509C574.17 599 627 546.17 627 481C627 415.83 574.17 363 509 363H266Z"
+    fill="#C6C6C6"
+  />
+</svg>; */
+}
+
 //   );
 // }
 
@@ -26,13 +35,13 @@ function IconRobot(props: React.SVGProps<SVGSVGElement>) {
       className="icon icon-robot mt-1"
       {...props}
     >
-      <circle cx="271" cy="479" r="52" fill="currentColor" />
-      <circle cx="504" cy="479" r="52" fill="currentColor" />
+      <circle cx="271" cy="479" r="52" fill="#00AEFF" />
+      <circle cx="504" cy="479" r="52" fill="#00AEFF" />
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M440 52C440 75.8684 423.919 95.9808 402 102.094V148.45C453.354 151.774 493.257 173.135 494.944 199.276C594.143 226.559 673.977 290.779 712.307 373H715C748.689 373 776 400.311 776 434V532C776 565.689 748.689 593 715 593H712.77C661.716 703.683 535.551 782 388 782C240.449 782 114.284 703.683 63.2297 593H61C27.3107 593 0 565.689 0 532V434C0 400.311 27.3107 373 61 373H63.6935C102.023 290.779 181.857 226.559 281.056 199.276C282.732 173.305 322.129 152.052 373 148.517V101.804C351.594 95.3657 336 75.5039 336 52C336 23.2812 359.281 0 388 0C416.719 0 440 23.2812 440 52ZM266 363C200.83 363 148 415.83 148 481C148 546.17 200.83 599 266 599H509C574.17 599 627 546.17 627 481C627 415.83 574.17 363 509 363H266Z"
-        fill="currentColor"
+        fill="#C6C6C6"
       />
     </svg>
   );
@@ -97,11 +106,43 @@ function IconCloseCircle(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+function IconHelpCircleOutline(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit={10}
+        strokeWidth={32}
+        d="M256 80a176 176 0 10176 176A176 176 0 00256 80z"
+      />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeMiterlimit={10}
+        strokeWidth={28}
+        d="M200 202.29s.84-17.5 19.57-32.57C230.68 160.77 244 158.18 256 158c10.93-.14 20.69 1.67 26.53 4.45 10 4.76 29.47 16.38 29.47 41.09 0 26-17 37.81-36.37 50.8S251 281.43 251 296"
+      />
+      <path d="M270 348 A20 20 0 0 1 250 368 A20 20 0 0 1 230 348 A20 20 0 0 1 270 348 z" />
+    </svg>
+  );
+}
+
+export default IconHelpCircleOutline;
+
 const MemoizedIconRobot = React.memo(IconRobot);
 const MemoizedIconUser = React.memo(IconUser);
 const MemoizedIconSendFill = React.memo(IconSendFill);
 const MemoizedIconCircleCheck = React.memo(IconCircleCheck);
 const MemoizedIconCloseCircle = React.memo(IconCloseCircle);
+const MemoizedIconHelpCircleOutline = React.memo(IconHelpCircleOutline);
 
 export {
   MemoizedIconRobot as IconRobot,
@@ -109,4 +150,5 @@ export {
   MemoizedIconSendFill as IconSendFill,
   MemoizedIconCircleCheck as IconCircleCheck,
   MemoizedIconCloseCircle as IconCloseCircle,
+  MemoizedIconHelpCircleOutline as IconHelpCircleOutline,
 };

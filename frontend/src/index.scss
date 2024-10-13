@@ -33,8 +33,11 @@ html {
     border-radius: 50%;
   }
   .icon-robot {
-    color: #545454;
+    // color: #545454;
     background: #c8c8c8;
+    * {
+      fill: #545454;
+    }
   }
 
   .icon-user {
@@ -56,7 +59,10 @@ html {
   padding: 15px 20px;
 }
 .s-box {
-  max-width: 75%;
+  @media (min-width: 768px) {
+    max-width: 75%;
+  }
+  max-width: calc(100vw - 75px);
   border-radius: 15px;
 }
 
@@ -82,10 +88,10 @@ html {
 }
 
 .summary-inner {
-  padding-left: 45px;
+  padding-left: 40px;
   .icon {
     position: absolute;
-    left: 0;
+    left: -8px;
     height: 45px;
     width: 45px;
     top: 50%;
