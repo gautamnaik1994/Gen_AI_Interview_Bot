@@ -1,4 +1,4 @@
-streamlit
+# streamlit
 langchain==0.3.1
 langchain-community==0.3.1
 langchain-together==0.2.0
@@ -8,6 +8,6 @@ langchain-together==0.2.0
 # langchain-huggingface==0.1.0
 
 # for fastapi
-# fastapi==0.115.0
-# uvicorn
-# gunicorn
+fastapi==0.115.0
+uvicorn
+gunicorn
