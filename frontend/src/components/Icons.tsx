@@ -24,6 +24,43 @@ import * as React from 'react';
 //   );
 // }
 
+function IconRobotAnimated(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 776 782"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      height="1em"
+      width="1em"
+      className="icon icon-robot mt-1"
+      {...props}
+    >
+      <circle cx="271" cy="479" r="52" fill="#00AEFF">
+        <animate
+          attributeName="r"
+          values="52;52;52;0;52;52;0;52;52;52;52;52"
+          dur="3.5s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <circle cx="504" cy="479" r="52" fill="#00AEFF">
+        <animate
+          attributeName="r"
+          values="52;52;52;0;52;52;0;52;52;52;52;52"
+          dur="3.5s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M440 52C440 75.8684 423.919 95.9808 402 102.094V148.45C453.354 151.774 493.257 173.135 494.944 199.276C594.143 226.559 673.977 290.779 712.307 373H715C748.689 373 776 400.311 776 434V532C776 565.689 748.689 593 715 593H712.77C661.716 703.683 535.551 782 388 782C240.449 782 114.284 703.683 63.2297 593H61C27.3107 593 0 565.689 0 532V434C0 400.311 27.3107 373 61 373H63.6935C102.023 290.779 181.857 226.559 281.056 199.276C282.732 173.305 322.129 152.052 373 148.517V101.804C351.594 95.3657 336 75.5039 336 52C336 23.2812 359.281 0 388 0C416.719 0 440 23.2812 440 52ZM266 363C200.83 363 148 415.83 148 481C148 546.17 200.83 599 266 599H509C574.17 599 627 546.17 627 481C627 415.83 574.17 363 509 363H266Z"
+        fill="#C6C6C6"
+      />
+    </svg>
+  );
+}
+
 function IconRobot(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -35,11 +72,11 @@ function IconRobot(props: React.SVGProps<SVGSVGElement>) {
       className="icon icon-robot mt-1"
       {...props}
     >
-      <circle cx="271" cy="479" r="52" fill="#00AEFF" />
-      <circle cx="504" cy="479" r="52" fill="#00AEFF" />
+      <circle cx="271" cy="479" r="52" fill="#00AEFF"></circle>
+      <circle cx="504" cy="479" r="52" fill="#00AEFF"></circle>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M440 52C440 75.8684 423.919 95.9808 402 102.094V148.45C453.354 151.774 493.257 173.135 494.944 199.276C594.143 226.559 673.977 290.779 712.307 373H715C748.689 373 776 400.311 776 434V532C776 565.689 748.689 593 715 593H712.77C661.716 703.683 535.551 782 388 782C240.449 782 114.284 703.683 63.2297 593H61C27.3107 593 0 565.689 0 532V434C0 400.311 27.3107 373 61 373H63.6935C102.023 290.779 181.857 226.559 281.056 199.276C282.732 173.305 322.129 152.052 373 148.517V101.804C351.594 95.3657 336 75.5039 336 52C336 23.2812 359.281 0 388 0C416.719 0 440 23.2812 440 52ZM266 363C200.83 363 148 415.83 148 481C148 546.17 200.83 599 266 599H509C574.17 599 627 546.17 627 481C627 415.83 574.17 363 509 363H266Z"
         fill="#C6C6C6"
       />
@@ -135,7 +172,18 @@ function IconHelpCircleOutline(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default IconHelpCircleOutline;
+function IconExternalLink(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="none" viewBox="0 0 15 15" height="1em" width="1em" {...props}>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M3 2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V8.5a.5.5 0 00-1 0V12H3V3h3.5a.5.5 0 000-1H3zm9.854.146a.5.5 0 01.146.351V5.5a.5.5 0 01-1 0V3.707L6.854 8.854a.5.5 0 11-.708-.708L11.293 3H9.5a.5.5 0 010-1h3a.499.499 0 01.354.146z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
 
 const MemoizedIconRobot = React.memo(IconRobot);
 const MemoizedIconUser = React.memo(IconUser);
@@ -143,6 +191,8 @@ const MemoizedIconSendFill = React.memo(IconSendFill);
 const MemoizedIconCircleCheck = React.memo(IconCircleCheck);
 const MemoizedIconCloseCircle = React.memo(IconCloseCircle);
 const MemoizedIconHelpCircleOutline = React.memo(IconHelpCircleOutline);
+const MemoizedIconExternalLink = React.memo(IconExternalLink);
+const MemoizedIconRobotAnimated = React.memo(IconRobotAnimated);
 
 export {
   MemoizedIconRobot as IconRobot,
@@ -151,4 +201,6 @@ export {
   MemoizedIconCircleCheck as IconCircleCheck,
   MemoizedIconCloseCircle as IconCloseCircle,
   MemoizedIconHelpCircleOutline as IconHelpCircleOutline,
+  MemoizedIconExternalLink as IconExternalLink,
+  MemoizedIconRobotAnimated as IconRobotAnimated,
 };

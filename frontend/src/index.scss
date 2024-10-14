@@ -59,11 +59,11 @@ html {
   padding: 15px 20px;
 }
 .s-box {
+  max-width: calc(100vw - 75px);
+  border-radius: 15px;
   @media (min-width: 768px) {
     max-width: 75%;
   }
-  max-width: calc(100vw - 75px);
-  border-radius: 15px;
 }
 
 .bottom-bar {

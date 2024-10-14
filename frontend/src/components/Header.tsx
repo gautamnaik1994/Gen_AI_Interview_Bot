@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { IconRobot, IconHelpCircleOutline } from './Icons';
+import {
+  IconRobotAnimated,
+  IconHelpCircleOutline,
+  IconExternalLink,
+} from './Icons';
 import { ping } from '../services/api';
 
 function Header() {
@@ -17,7 +21,7 @@ function Header() {
     <nav className="navbar sticky-top bg-black shadow-sm ">
       <div className="container">
         <div className=" d-flex align-items-center gap-3 py-2">
-          <IconRobot />
+          <IconRobotAnimated />
           <div>
             <h5 className="mb-0 text-body navbar-brand">Interview Bot</h5>
             <small
@@ -47,10 +51,18 @@ function Header() {
           <a
             href="https://github.com/gautamnaik1994/AI_Hackathon"
             target="_blank"
-            className="text-white underline-hover"
+            className="underline-hover"
           >
-            GitHub
+            GitHub&nbsp;
+            <IconExternalLink />
           </a>
+          {/* <a
+            href="https://github.com/gautamnaik1994/AI_Hackathon/tree/main/frontend"
+            target="_blank"
+            className="text-white underline-hover ms-3"
+          >
+            Sample Answers
+          </a> */}
         </div>
       </div>
     </nav>
