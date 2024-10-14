@@ -11,4 +11,4 @@ langchain-together==0.2.0
 fastapi==0.115.0
 uvicorn
 gunicorn
-dotenv
+python-dotenv 
