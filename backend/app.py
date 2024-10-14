@@ -14,9 +14,8 @@ load_dotenv()
 
 app = FastAPI()
 origins = [
-    "http://localhost:3000",  # React app running on localhost:3000
-    "http://localhost:8000",  # FastAPI server running on localhost:8000
-    "http://localhost:5173",  # Streamlit app running on localhost:8501
+    "http://localhost:5173",
+    "https://aihackathon.netlify.app"
 ]
 
 app.add_middleware(
