@@ -39,7 +39,7 @@ function Header() {
                     className="align-text-top"
                     title="Using free server for backend, which sleeps after some time"
                   >
-                    Connecting...{' '}
+                    Server is starting up
                     <IconHelpCircleOutline height="1.2em" width="1.2em" />
                   </span>
                 </>
