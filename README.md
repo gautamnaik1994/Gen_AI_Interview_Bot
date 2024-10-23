@@ -6,7 +6,12 @@ This a chatbot built to shortlist candidates for a job interview. The goal is le
 
 The chatbot uses Generative AI to rate the candidates based on their responses to the questions asked. Depending on the total score, the candidate is allowed to schedule an interview or not.
 
-# Architecture
+## Link
+
+[https://aihackathon.netlify.app/](https://aihackathon.netlify.app/)
+
+
+## Architecture
 
 **Components**
 
