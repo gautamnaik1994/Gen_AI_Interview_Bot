@@ -6,19 +6,6 @@ This a chatbot built to shortlist candidates for a job interview. The goal is le
 
 The chatbot uses Generative AI to rate the candidates based on their responses to the questions asked. Depending on the total score, the candidate is allowed to schedule an interview or not.
 
-## Link
-
-[https://aihackathon.netlify.app/](https://aihackathon.netlify.app/)
-
-
-## Architecture
-
-**Components**
-
-- The frontend is built using ReactJS
-- The backend is built using FastAPI
-- The chatbot is built using `meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo` LLM model.
-
 **How it works:**
 
 - Every time a candidate enters a response to a question, the response is sent to the LLM model via the backend.
@@ -36,6 +23,20 @@ Rate the user's answer on a scale from 1 to 10 based on its relevance, accuracy,
 {format_instructions}
 """
 ```
+
+## Link
+
+[https://gen-ai-interview-bot.streamlit.app/](https://gen-ai-interview-bot.streamlit.app/)
+
+## Architecture
+
+> The following architecture is only for the custom FastAPI and ReactJS app. The Streamlit app has a different architecture.
+
+**Components**
+
+- The frontend is built using ReactJS
+- The backend is built using FastAPI
+- The chatbot is built using `meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo` LLM model.
 
 - After the prompt is generated, the model generates a rating and a reason for the rating.
 - The rating and the reason are then sent back to the frontend where the candidate can see the rating and the reason.
